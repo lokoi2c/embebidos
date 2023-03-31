@@ -15,7 +15,8 @@ class laberinto(QMainWindow):#herencia
         #eventos asociadps a una funcion
         self.ui.max.clicked.connect(self.click_max)
         self.ui.mex.clicked.connect(self.click_mex)#shit
-        self.ui.may.clicked.connect(self.click_may)
+        self.ui.may.clicked.connect(self.click_may)#otro cambio
+        
         self.ui.mey.clicked.connect(self.click_mey)#ojala sirva
         self.ui.centro.clicked.connect(self.click_centrar)
         self.ui.ADusb.clicked.connect(self.click_AcDeUSB) #ADusb traduccion:ActivarDesactivar_usb
