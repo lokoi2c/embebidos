@@ -10,12 +10,13 @@ serial = serial.Serial('/dev/ttyUSB0', 115200)# (puerto, velocidad) objeto tipo 
 class laberinto(QMainWindow):#herencia
     def __init__(self):
         super().__init__()#(laberinto, self).__init__()
-        self.ui = uic.loadUi('interfaz_qt.ui', self)
+        self.ui = uic.loadUi('interfaz_qt.ui', self)#otro change
         
-        #eventos asociadps a una funcion
+        #eventos asociados a una funcion, llevan nombre del boton  y la funcion a ejecutar
         self.ui.max.clicked.connect(self.click_max)
         self.ui.mex.clicked.connect(self.click_mex)#shit
-        self.ui.may.clicked.connect(self.click_may)
+        self.ui.may.clicked.connect(self.click_may)#otro cambio
+        
         self.ui.mey.clicked.connect(self.click_mey)#ojala sirva
         self.ui.centro.clicked.connect(self.click_centrar)
         self.ui.ADusb.clicked.connect(self.click_AcDeUSB) #ADusb traduccion:ActivarDesactivar_usb
