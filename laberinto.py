@@ -5,8 +5,8 @@ from PyQt5 import uic
 from PyQt5.Qt import Qt
 import serial
 
-serial = serial.Serial('/dev/ttyUSB1', 115200)# (puerto, velocidad) objeto tipo serial
-AcDe = True
+serial = serial.Serial('/dev/ttyUSB0', 115200)# (puerto, velocidad) objeto tipo serial
+
 #creacion de la clase principalll
 class laberinto(QMainWindow):#herencia
     def __init__(self):
@@ -15,29 +15,69 @@ class laberinto(QMainWindow):#herencia
         
         #eventos asociados a una funcion, llevan nombre del boton  y la funcion a ejecutar
         self.ui.max.clicked.connect(self.click_max)
-        self.ui.mex.clicked.connect(self.click_mex)#shit
+        self.ui.mex.clicked.connect(self.click_mex)#
         self.ui.may.clicked.connect(self.click_may)#otro cambio
+        self.modo.stateChanged.connect(self.cambio_modo)#si es  activado cambia el modo de juego
+        
         
         self.ui.mey.clicked.connect(self.click_mey)#ojala sirva
         self.ui.centro.clicked.connect(self.click_centrar)
         self.ui.ADusb.clicked.connect(self.click_AcDeUSB) #ADusb traduccion:ActivarDesactivar_usb
+        self.AcDe = True
         
+        self.letraEnviada = 'e'
+        self.letraPrevia = 'e'
         
+#metodos llamados como eventos al presionar los botones       
     def click_max(self):
-        serial.write(b'd')
+        self.letraEnviada = 'd'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b'd')
+        self.letraPrevia = self.letraEnviada
             
     def click_mex(self):
-        serial.write(b'a')
+        self.letraEnviada = 'a'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b'a')
+        self.letraPrevia = self.letraEnviada
         
     def click_may(self):
-        serial.write(b'w')
+        self.letraEnviada = 'w'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b'w')
+        self.letraPrevia = self.letraEnviada
         
     def click_mey(self):
-        serial.write(b's')
+        self.letraEnviada = 's'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b's')
+        self.letraPrevia = self.letraEnviada
         
     def click_centrar(self):
-        serial.write(b'e')
+        self.letraEnviada = 'e'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b'e')
+        self.letraPrevia = self.letraEnviada
     
+    def cambio_modo(self):
+        self.letraEnviada = 'm'
+        if self.letraEnviada == self.letraPrevia:
+            pass
+        else:
+            serial.write(b'm')
+        self.letraPrevia = self.letraEnviada
+
+#metodos asociados a comunicaion serial 
     def click_AcDeUSB(self):
         self.ui.label.setText(str(self.AcDe))
         if(self.AcDe):

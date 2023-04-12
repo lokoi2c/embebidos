@@ -1,58 +1,25 @@
-#include <arduino.h>
-const byte led = 2;
+#include "serialqt.h"
+
+serialQT serialQT1;
+
 
 void setup() {
   Serial.begin(115200);
-  pinMode(led, OUTPUT);
   delay(1000);
 }
 
 void loop() {
-  if(Serial.available()){
-    char dato = Serial.read();
-    if(dato== 'w'){
-      digitalWrite(led, 1);
-      delay(500);
-      digitalWrite(led, 0);
-      delay(500);
-      digitalWrite(led, 1);
-      delay(500);
-      digitalWrite(led, 0);
+//char dato = serialCaracter();
+int valorx = 0;
+ int valory = 0;
+    if(Serial.available()){
+        char dato = Serial.read();
+        valorx = serialQT1.serialX(dato);
+        valory = serialQT1.serialY(dato);
     }
-    else if(dato== 's'){
-      digitalWrite(led, 1);
-      delay(1000);
-      digitalWrite(led, 0);
-    }
-    else if(dato== 'a'){
-      digitalWrite(led, 1);
-      delay(1000);
-      digitalWrite(led, 0);
-      delay(1000);
-      digitalWrite(led, 1);
-      delay(1000);
-      digitalWrite(led, 0);
-    }
-    else if(dato== 'd'){
-      digitalWrite(led, 1);
-      delay(2000);
-      digitalWrite(led, 0);
-    }
-    else{
-      digitalWrite(led, 1);
-      delay(200);
-      digitalWrite(led, 0);
-      delay(200);
-      digitalWrite(led, 1);
-      delay(200);
-      digitalWrite(led, 0);
-      delay(200);
-      digitalWrite(led, 1);
-      delay(200);
-      digitalWrite(led, 0);
-      delay(200);
-      digitalWrite(led, 1);
-    }
-  }
-
+        //Serial.println("valorx: " + String(valorx) + "  valorY: " + String(valory));
 }
+
+
+
+
