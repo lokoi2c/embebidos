@@ -16,7 +16,7 @@ automatizarlo.
 La integración de la Raspberry al sistema es simplemente la conexión de esta, a la 
 computadora. Sin embargo, si desea transportar el laberinto, reemplazar piezas o por 
 algún motivo accidental desconectó partes del circuito de la ESP32, deberá tener en 
-cuenta las siguientes conexiones
+cuenta las siguientes conexiones:
 ![image](https://github.com/lokoi2c/PROF_II_Sis_embedidos/assets/71717504/b84b9625-7a5d-4463-94c3-fba522d0611c)
 
 ### Servos: 
