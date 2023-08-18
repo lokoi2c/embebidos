@@ -75,4 +75,3 @@ Imagen 2
 ![laberinto2](https://github.com/lokoi2c/embebidos/assets/71717504/1c199f2e-61a1-4134-b2fc-ef6a8ea0059b)
 
 
-
